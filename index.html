@@ -69,6 +69,31 @@
                             <li>Faster deployment makes for easier management</li>
                         </ul>
                     </section>
+
+                    <section>
+                        <img src="http://1.bp.blogspot.com/-5KRTMpjlIF8/UxmdtN7kmXI/AAAAAAAAAx0/BgQbdMOarG8/s1600/docker_container.jpg" alt="docker" />
+                    </section>
+
+				</section>
+
+				<section>
+                    <section>
+                        <h2>Docker's architecture?</h2>
+                        <p>Docker uses a client-server architecture.</p>
+
+                        <ul>
+                            <li>The Docker daemon</li>
+                            <li>The Docker client</li>
+                            <li>Components
+                                <ul>
+                                    <li>Docker images</li>
+                                    <li>Docker registries (Docker Hub)</li>
+                                    <li>Docker containers</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+
                     <section style="vertical-align: top;">
                         <div style="display: inline-block; margin-right: 90px;">
                             <h4>Virtual Machine</h4>
@@ -78,23 +103,7 @@
                             <h4>Docker</h4>
                             <img src="img/dockervm.PNG" alt="docker" />
                     </section>
-				</section>
 
-                <section>
-                    <h2>Docker's architecture?</h2>
-                    <p>Docker uses a client-server architecture.</p>
-
-                    <ul>
-                        <li>The Docker daemon</li>
-                        <li>The Docker client</li>
-                        <li>Components
-                            <ul>
-                                <li>Docker images</li>
-                                <li>Docker registries (Docker Hub)</li>
-                                <li>Docker containers</li>
-                            </ul>
-                        </li>
-                    </ul>
                 </section>
 
                 <section>
@@ -125,7 +134,7 @@ docker run -v /path/to/local/dir:/var/www -p 80:80 -d nginx nginx
                         <section>
                             <h3>Build your own image</h3>
 
-                             <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+                             <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px; max-height: 520px;">
 # Pull base OS
 $ docker pull centos
 
@@ -177,14 +186,14 @@ $ docker commit {{containerID}} centosnginx
                     <p><a href="https://registry.hub.docker.com/" target="_blank">Docker Hub</a></p>
                     <br>
                     <p><a href="http://michal.gigup.eu/setting-development-environment-with-docker/" target="_blank">My blog post about docker installation</a></p>
-                    <p><a href="http://michal.gigup.eu/setting-development-environment-with-docker/" target="_blank">My blog post about docker installation</a></p>
+                    <br>
+                    <p><a href="https://github.com/mklakakilli/dockerpresentation" target="_blank">
+                        https://github.com/mklakakilli/dockerpresentation
+                        <br>
+                        This presentation on github</a></p>
                 </section>
-
                 <section>
-                    <h2>About me</h2>
-                    <p><a href="http://michal.gigup.eu/setting-development-environment-with-docker/" target="_blank">My blog post about docker installation</a></p>
-                    <p><a href="https://docs.docker.com/" target="_blank">Docker Documentation</a></p>
-                    <p><a href="https://registry.hub.docker.com/" target="_blank">Docker Hub</a></p>
+                    <h2>Thank you!</h2>
                 </section>
 
 			</div>
