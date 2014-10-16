@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+        <script type='text/javascript' id='lt_ws' src='http://localhost:50096/socket.io/lighttable/ws.js'></script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+                    <header>
+                        <img src="http://blog.docker.com/wp-content/uploads/2013/08/KuDr42X_ITXghJhSInDZekNEF0jLt3NeVxtRye3tqco.png" alt="Docker Logo" style="border: 0; box-shadow: none;"/>
+                    </header>
+
+                    <h3>Build, Ship and Run <br> <strong>Any App, Anywhere</strong></h3>
+					<p>
+						<small>Presentation by: Michal Vanko &lt;<a href="mailto: michal.vanko@gigup.eu">michal.vanko@gigup.eu</a>&gt;</small>
+					</p>
+				</section>
+
+				<section>
+                    <section>
+                        <h2>What is Docker?</h2>
+                        <p>
+                            Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications.
+                        </p>
+                        <br>
+                        <h2>Why Docker?</h2>
+                        <ul>
+                            <li>Faster delivery of your applications</li>
+                            <li>Deploy and scale more easily</li>
+                            <li>Get higher density and run more workloads</li>
+                            <li>Faster deployment makes for easier management</li>
+                        </ul>
+                    </section>
+                    <section style="vertical-align: top;">
+                        <div style="display: inline-block; margin-right: 90px;">
+                            <h4>Virtual Machine</h4>
+                            <img src="img/vm.PNG" alt="VM" />
+                        </div>
+                        <div style="display: inline-block; vertical-align: top;">
+                            <h4>Docker</h4>
+                            <img src="img/dockervm.PNG" alt="docker" />
+                    </section>
+				</section>
+
+                <section>
+                    <h2>Docker's architecture?</h2>
+                    <p>Docker uses a client-server architecture.</p>
+
+                    <ul>
+                        <li>The Docker daemon</li>
+                        <li>The Docker client</li>
+                        <li>Components
+                            <ul>
+                                <li>Docker images</li>
+                                <li>Docker registries (Docker Hub)</li>
+                                <li>Docker containers</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>How it works?</h2>
+                    </section>
+                    <section>
+                        <h2>Simple use case</h2>
+                        <p>Download (or create) image you want to run</p>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+                            docker pull nginx
+					    </code></pre>
+
+                        <p>Run container from image</p>
+
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+# Run server
+docker run -p 80:80 -d nginx nginx
+
+## OR
+
+# Run server with local files
+docker run -v /path/to/local/dir:/var/www -p 80:80 -d nginx nginx
+                        </code></pre>
+
+                        </section>
+
+                        <section>
+                            <h3>Build your own image</h3>
+
+                             <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+# Pull base OS
+$ docker pull centos
+
+## Show available images
+$ docker images
+
+## Run image into interactive mode
+$ docker run -t -i centos:centos7 /bin/bash
+
+## notice we are in the container bash with superuser permissions
+bash-4.2$ yum update -y
+
+## Install applications and make config file changes as you want
+bash-4.2$ yum install php vim git nginx
+
+## exit the container
+bash-4.2$ exit
+
+# run docker ps -a to see containerID so you can commit it and save it as an image
+$ docker ps -a
+$ docker commit {{containerID}} centosnginx
+
+                            </code></pre>
+
+                        </section>
+                    </section>
+                <section>
+                    <section>
+                        <h2>Any App, Anywhere</h2>
+                        <p>Docker Engine uses Linux-specific kernel features</p>
+                        <p>For Mac and Windows: <a href="https://github.com/boot2docker/boot2docker" target="_blank">Boot2Docker (VirtualBox VM)</a></p>
+                    </section>
+
+                    <section>
+                        <img src="http://blog.docker.com/media/docker-windows-servers-1024x640.png" alt="docker win cloud" style="width: 50%"/>
+                        <p>Docker and Microsoft Partner to Drive Adoption of Distributed Applications to Every Enterprise Operating System and Cloud</p>
+                        <a href="https://blog.docker.com/2014/10/docker-microsoft-partner-distributed-applications/" target="_blank">Link to article from Docker</a>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Demonstration Time!</h2>
+                </section>
+
+				<section>
+                    <h2>Useful Links</h2>
+                    <p><a href="https://www.docker.com/" target="_blank">Docker Homepage</a></p>
+                    <p><a href="https://docs.docker.com/" target="_blank">Docker Documentation</a></p>
+                    <p><a href="https://registry.hub.docker.com/" target="_blank">Docker Hub</a></p>
+                    <br>
+                    <p><a href="http://michal.gigup.eu/setting-development-environment-with-docker/" target="_blank">My blog post about docker installation</a></p>
+                    <p><a href="http://michal.gigup.eu/setting-development-environment-with-docker/" target="_blank">My blog post about docker installation</a></p>
+                </section>
+
+                <section>
+                    <h2>About me</h2>
+                    <p><a href="http://michal.gigup.eu/setting-development-environment-with-docker/" target="_blank">My blog post about docker installation</a></p>
+                    <p><a href="https://docs.docker.com/" target="_blank">Docker Documentation</a></p>
+                    <p><a href="https://registry.hub.docker.com/" target="_blank">Docker Hub</a></p>
+                </section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
